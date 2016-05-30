@@ -8,9 +8,9 @@ message Command {
 		ReadAll = 1;
 		DirtyWrite = 2;
 		Write = 3;
-    TryLock = 4;
-    UnLock = 5;
-    DeleteUser = 6;
+    		TryLock = 4;
+    		UnLock = 5;
+    		DeleteUser = 6;
 		RaftVote = 7;
 		RaftAppendEntries = 8;
 		SynRaftStage = 9;
@@ -29,7 +29,7 @@ message Command {
 
   optional Kv kv = 2;
   optional floyd.raft.RequestVote rqv = 3;
-	optional floyd.raft.AppendEntriesRequest aerq = 4;
+  optional floyd.raft.AppendEntriesRequest aerq = 4;
 
   message User {
     required bytes ip = 1;
@@ -45,9 +45,9 @@ message CommandRes {
 		Read = 0;
 		ReadAll = 1;
 		Write = 2;
-    TryLock = 3;
-    UnLock = 4;
-    DeleteUser = 5;
+    		TryLock = 3;
+    		UnLock = 4;
+    		DeleteUser = 5;
 		RaftVote = 6;
 		RaftAppendEntries = 7;
 		SynRaftStage = 8;
@@ -64,7 +64,7 @@ message CommandRes {
   }
   message KvAllRet {
 	  required bool status = 1;
-	  repeated Kv kvall= 2;
+	  repeated Kv kvall= 2; /* array */
   }
 
   message RaftStageRes {
@@ -77,7 +77,7 @@ message CommandRes {
   optional KvRet kvr = 2;
   optional KvAllRet kvallr = 3;
   optional floyd.raft.ResponseVote rsv = 4;
-	optional floyd.raft.AppendEntriesResponse aers = 5;
+  optional floyd.raft.AppendEntriesResponse aers = 5;
   optional RaftStageRes raftstage = 6;
 }
 
